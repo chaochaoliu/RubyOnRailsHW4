@@ -1,6 +1,22 @@
 <p id = 'notice'><%= notice %></p>
 <p>
-  <strong>Name:</strong>
-  <%= @post.name %>
+  <strong>Title:</strong>
+  <%= @post.title %>
 </p>
-<%= link_to 'Back', posts_path %>
+
+<p>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @post.category.name %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.email %>
+</p>
+
+<%= link_to 'Back to posts in ' , category_path(@post.category.id) %>

@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :destroy, :update]
+  before_action :set_post, only: [:show, :edit, :destroy, :update]
   def index
     @posts = Post.all
   end
@@ -15,11 +15,11 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(category_params)
+    @post = Post.new(post_params)
 
     respond_to do |format|
       if @post.save
-        format.html {redirect_to @category, notice: 'Post was succefully saved.'}
+        format.html {redirect_to @post, notice: 'Post was succefully saved.'}
         format.json {render :show, status: :created, location: @post}
       else
         format.html {render :new}
@@ -31,7 +31,7 @@ class PostsController < ApplicationController
   def update
     respond_to do |format|
       if @post.update(post_params)
-        format.html {redirect_to @category, notice: 'Post was succefully updated.'}
+        format.html {redirect_to @post, notice: 'Post was succefully updated.'}
         format.json {render :show, status: :ok, location: @post}
       else
         format.html {render :new }
@@ -43,17 +43,17 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html {redirect_to posts_url notice: 'Post was succefully destroyed.'}
+      format.html {redirect_to category_path notice: 'Post was succefully destroyed.'}
       format.json {head :no_content}
     end
   end
 
   private
-    def set_category
+    def set_post
       @post = Post.find(params[:id])
     end
 
-    def category_params
-      params.require(:post).permit(:name)
+    def post_params
+      params.require(:post).permit(:title, :content, :category_id, :user_id, :published)
     end
 end

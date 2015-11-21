@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :categories
   resources :posts
 
+  root 'categories#index'
+
   # get 'category/show'
 
   # get 'category/new'
