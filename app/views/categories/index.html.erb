@@ -15,7 +15,7 @@
       <td><%= category.name %>(<%= category.post_count %>)</td>
       <td><%= link_to 'Show', category_path(category.id) %></td>
       <td><%= link_to 'Edit', edit_category_path(category) %></td>
-      <td><%= link_to 'Destroy', category, method: :delete, data: { conform: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', category_path(category.id), method: :delete, data: { conform: 'Are you sure?' } %></td>
     </tr>
     <% end %>
   </tbody>
