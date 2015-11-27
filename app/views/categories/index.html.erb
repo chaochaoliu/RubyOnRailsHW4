@@ -22,5 +22,9 @@
 </table>
 <br>
 
-<%= link_to 'New Category', new_category_path %>
+<%= link_to 'New Category', new_category_path %><br>
 <%= link_to 'New Post', new_post_path %>
+<br><br>
+<%= link_to destroy_user_session_path, method: :delete do %>
+                <i class="fa fa-sign-out fa-fw"></i> Logout
+<% end %>

@@ -7,6 +7,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
+  def create
+    super do |resource|
+      UserMailer.welcome_email(resource).deliver_now
+    end
+  end
+
   # POST /resource
   # def create
   #   super

@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'devise'
+  gem "letter_opener", :group => :development
 end
 
 group :development do
