@@ -24,21 +24,21 @@ Category.create(name: 'sports')
 
 
 
-user = User.create(email: Faker::Internet.email,password: Faker::Internet.password(6,100),user_role: UserRole.find_by(name: 'admin'))
+user = User.create(email: 'aaa@gmail.com',password: 'aaaaaaaa',user_role: UserRole.find_by(name: 'admin'))
 user_info = UserInfo.create(firstname: Faker::Name.first_name,lastname: Faker::Name.last_name,profile: Faker::Lorem.paragraph)
 user.user_info = user_info
 
-user = User.create(email: Faker::Internet.email,password: Faker::Internet.password(6,100),user_role: UserRole.find_by(name: 'guest'))
+user = User.create(email: 'bbb@yahoo.com',password: 'aaaaaaaa',user_role: UserRole.find_by(name: 'guest'))
 user_info = UserInfo.create(firstname: Faker::Name.first_name,lastname: Faker::Name.last_name,profile: Faker::Lorem.paragraph)
 user.user_info = user_info 
 
-user = User.create(email: Faker::Internet.email,password: Faker::Internet.password(6,100),user_role: UserRole.find_by(name: 'guest'))
+user = User.create(email: 'ccc@sina.com',password: 'aaaaaaaa',user_role: UserRole.find_by(name: 'guest'))
 user_info = UserInfo.create(firstname: Faker::Name.first_name,lastname: Faker::Name.last_name,profile: Faker::Lorem.paragraph)
 user.user_info = user_info 
 
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
-    user: User.find(1),
+    user: User.find_by(email: 'aaa@gmail.com'),
     category_id: Category.find_by(name: 'technology').id
     )
   post.tags << Tag.find_by(name: 'iphone6s')
@@ -47,7 +47,7 @@ user.user_info = user_info
 
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
-    user: User.find(2),
+    user: User.find_by(email: 'aaa@gmail.com'),
     category_id: Category.find_by(name: 'sports').id
     )
   post.tags << Tag.find_by(name: 'NBA')
@@ -55,7 +55,7 @@ user.user_info = user_info
 
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
-    user: User.find(2),
+    user: User.find_by(email: 'bbb@yahoo.com'),
     category_id: Category.find_by(name: 'sports').id
     )
 
@@ -64,7 +64,7 @@ user.user_info = user_info
 
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
-    user: User.find(3),
+    user: User.find_by(email: 'ccc@sina.com'),
     category_id: Category.find_by(name: 'business').id
     )
   post.tags << Tag.find_by(name: 'credit card')
