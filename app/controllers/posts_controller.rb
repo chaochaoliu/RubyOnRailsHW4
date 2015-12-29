@@ -1,7 +1,6 @@
 class PostsController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
-
   before_action :set_post, only: [:show, :edit, :destroy, :update]
   def index
     @posts = Post.all
