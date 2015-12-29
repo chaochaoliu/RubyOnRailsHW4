@@ -1,4 +1,5 @@
 class Post < ActiveRecord::Base
+  scope :published, -> { where(published: true) }
 	belongs_to :user
 	belongs_to :category
 	has_many :post_tag_refs

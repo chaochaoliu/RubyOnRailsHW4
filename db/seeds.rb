@@ -21,9 +21,6 @@ Category.create(name: 'technology')
 Category.create(name: 'business')
 Category.create(name: 'sports')
 
-
-
-
 user = User.create(email: 'aaa@gmail.com',password: 'aaaaaaaa',user_role: UserRole.find_by(name: 'admin'))
 user_info = UserInfo.create(firstname: Faker::Name.first_name,lastname: Faker::Name.last_name,profile: Faker::Lorem.paragraph)
 user.user_info = user_info
@@ -39,7 +36,8 @@ user.user_info = user_info
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
     user: User.find_by(email: 'aaa@gmail.com'),
-    category_id: Category.find_by(name: 'technology').id
+    category_id: Category.find_by(name: 'technology').id,
+    published: true
     )
   post.tags << Tag.find_by(name: 'iphone6s')
   post.tags << Tag.find_by(name: 'Mac')
@@ -48,7 +46,8 @@ user.user_info = user_info
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
     user: User.find_by(email: 'aaa@gmail.com'),
-    category_id: Category.find_by(name: 'sports').id
+    category_id: Category.find_by(name: 'sports').id,
+    published: true
     )
   post.tags << Tag.find_by(name: 'NBA')
   post.tags << Tag.find_by(name: 'swimming')
@@ -56,7 +55,8 @@ user.user_info = user_info
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
     user: User.find_by(email: 'bbb@yahoo.com'),
-    category_id: Category.find_by(name: 'sports').id
+    category_id: Category.find_by(name: 'sports').id,
+    published: true
     )
 
   post.tags << Tag.find_by(name: 'football')
@@ -65,7 +65,8 @@ user.user_info = user_info
   post = Post.create(title: Faker::Lorem.word, 
     content: Faker::Lorem.sentence,
     user: User.find_by(email: 'ccc@sina.com'),
-    category_id: Category.find_by(name: 'business').id
+    category_id: Category.find_by(name: 'business').id,
+    published: false
     )
   post.tags << Tag.find_by(name: 'credit card')
   post.tags << Tag.find_by(name: 'amazon')
