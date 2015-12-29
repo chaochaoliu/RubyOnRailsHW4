@@ -11,6 +11,11 @@ Rails.application.routes.draw do
 
   root 'categories#index'
 
+  # authenticated :user do
+  #   root :to => 'categories#index', as: :authenticated_root
+  # end
+  # root :to => 'users#new'  
+
   # get 'category/show'
 
   # get 'category/new'
