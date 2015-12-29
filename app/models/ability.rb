@@ -4,9 +4,9 @@ class Ability
   def initialize(user)
     # user ||= User.new # guest user (not logged in)
 
-   if user.admin?
+   
         can [:create, :read, :update, :destroy], [Category, Post]
-    end
+    
     
     # Define abilities for the passed in user here. For example:
     #
